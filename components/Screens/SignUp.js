@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import {
   Text,
   View,
@@ -13,8 +13,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import styles from "../globalstyles";
 
-export default function SignIn(props) {
-  const {hasAccountHandler, signUp, setSignUp} = props;
+export default function SignUp() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -25,7 +24,7 @@ export default function SignIn(props) {
           <View style={styles.inner}>
           <ImageBackground source={require('../Images/henna.jpg')} resizeMode="cover" style={styles.image}>
             <View style={styles.title}>
-              <Text style={styles.welcome}>Welcome to HenTat!</Text>
+              <Text style={styles.welcome}>Sign Up</Text>
             </View>
             <View style={styles.logoContainer}>
               <Image
@@ -34,6 +33,15 @@ export default function SignIn(props) {
               />
             </View>
             <View style={styles.signIn}>
+            <View style={styles.inputView}>
+                <TextInput
+                  secureTextEntry
+                  style={styles.inputText}
+                  placeholder="Name"
+                  placeholderTextColor="#00f3c5"
+                  //onChangeText={setName}
+                />
+              </View>
               <View style={styles.inputView}>
                 <TextInput
                   style={styles.inputText}
@@ -51,27 +59,36 @@ export default function SignIn(props) {
                   //onChangeText={setPassword}
                 />
               </View>
+              <View style={styles.inputView}>
+                <TextInput
+                  secureTextEntry
+                  style={styles.inputText}
+                  placeholder="Re Enter Password"
+                  placeholderTextColor="#00f3c5"
+                  //onChangeText={setReEnterPassword}
+                />
+              </View>
             </View>
             <View style={styles.buttons}>
               <TouchableOpacity
                 style={styles.loginBtn} /*onPress={handleLogin}*/
               >
-                <Text style={styles.loginText}>Login</Text>
+                <Text style={styles.loginText}>Submit</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.loginBtn}>
+             {/* <TouchableOpacity style={styles.loginBtn}>
                 <Text style={styles.loginText} onPress={hasAccountHandler}>
                   Sign Up
                 </Text>
-              </TouchableOpacity>
+  </TouchableOpacity> 
 
-              <TouchableOpacity style={styles.loginBtn}>
+             <TouchableOpacity style={styles.loginBtn}>
                 <Text
-                  style={styles.loginText} /*onPress={forgotPasswordHandler} */
+                  style={styles.loginText} /*onPress={forgotPasswordHandler} 
                 >
                   Forgot Password?
                 </Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
             </ImageBackground>
           </View>
