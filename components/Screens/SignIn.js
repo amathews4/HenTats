@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useState} from "react";
 import {
   Text,
   View,
@@ -10,11 +10,17 @@ import {
   Keyboard,
   ImageBackground,
 } from "react-native";
+import fire from '../Firebase';
 import { Ionicons } from "@expo/vector-icons";
 import styles from "../globalstyles";
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
+export default function SignIn(props) {
+  const {hasAccountHandler, signUp, setSignUp} = props;
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const handleLogin = () => {
     //clearErrors();
     fire
@@ -25,17 +31,14 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
                 case "auth/invalid-email":
                 case "auth/user-disabled":
                 case "auth/user-not-found":
-                   // setEmailError(err.message);
+                   setEmailError(err.message);
                     break;
                 case "auth/wrong-password":
-                    //setPasswordError(err.message);
+                    setPasswordError(err.message);
                     break;
             }
         });
-};
-
-export default function SignIn(props) {
-  const {hasAccountHandler, signUp, setSignUp} = props;
+      };
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -59,7 +62,7 @@ export default function SignIn(props) {
                   style={styles.inputText}
                   placeholder="Email"
                   placeholderTextColor="#00f3c5"
-                  //onChangeText={setEmail}
+                  onChangeText={setEmail}
                 />
               </View>
               <View style={styles.inputView}>
@@ -68,13 +71,13 @@ export default function SignIn(props) {
                   style={styles.inputText}
                   placeholder="Password"
                   placeholderTextColor="#00f3c5"
-                  //onChangeText={setPassword}
+                  onChangeText={setPassword}
                 />
               </View>
             </View>
             <View style={styles.buttons}>
               <TouchableOpacity
-                style={styles.loginBtn} /*onPress={handleLogin}*/>
+                style={styles.loginBtn} onPress={handleLogin}>
                 <Text style={styles.loginText}>Login</Text>
               </TouchableOpacity>
 

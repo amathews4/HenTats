@@ -7,6 +7,7 @@ import SignIn from "./components/Screens/SignIn";
 import SignUp from "./components/Screens/SignUp";
 import fire from "./components/Firebase";
 import firebase from "firebase";
+import Settings from "./components/Screens/Settings";
 require("firebase/auth");
 
 function CameraScreen() {
@@ -28,7 +29,6 @@ function HomeScreen() {
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [signUp, setSignUp] = useState(false);
   const [user, setUser] = useState("");
   const [forgotPassword, setForgotPassword] = useState(false);
@@ -38,7 +38,6 @@ export default function App() {
       if (user) {
         //clearInputs();
         setUser(user);
-        loginHandler();
       } else {
         setUser("");
       }
@@ -52,14 +51,11 @@ export default function App() {
   function hasAccountHandler() {
     setSignUp(!signUp);
   }
-  function loginHandler() {
-    setLoggedIn(!loggedIn);
-  }
   function forgotPasswordHandler() {
     setForgotPassword(!forgotPassword);
   }
 
-  if (loggedIn) {
+  if (user) {
     return (
       <NavigationContainer>
         <Tab.Navigator
@@ -82,7 +78,9 @@ export default function App() {
         >
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Camera" component={CameraScreen} />
-        </Tab.Navigator>
+          {/*<Tab.Screen name = "Saved Pictures" component ={SignIn}/>*/}
+           <Tab.Screen name = "Settings" component = {Settings}/>
+        </Tab.Navigator> 
       </NavigationContainer>
     );
   } else if (signUp) {
