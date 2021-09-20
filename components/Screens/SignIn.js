@@ -54,14 +54,13 @@ export default function SignIn(props) {
             </View>
             <View style={styles.buttons}>
               <TouchableOpacity
-                style={styles.loginBtn} /*onPress={handleLogin}*/
-              >
+                style={styles.loginBtn} /*onPress={handleLogin}*/>
                 <Text style={styles.loginText}>Login</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.loginBtn}>
-                <Text style={styles.loginText} onPress={hasAccountHandler}>
-                  Sign Up
+              <TouchableOpacity  onPress={hasAccountHandler} style={styles.loginBtn}>
+                <Text style={styles.loginText} >
+                  Sign Up Here
                 </Text>
               </TouchableOpacity>
 

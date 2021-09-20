@@ -83,4 +83,19 @@ export default StyleSheet.create({
   loginText: {
     color: "#00f3c5",
   },
+  signUpButton:{
+    flex:1,
+    backgroundColor: "black",
+    color: "#00f3c5",
+    width: 200,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 100,
+    marginVertical:40,
+    borderColor: "white",
+    borderStyle: "solid",
+    borderWidth: 3,
+    borderRadius: 40,
+  }
 });

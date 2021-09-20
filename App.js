@@ -1,10 +1,11 @@
-import React, {useState} from "react";
-import { Text, View, TextInput, TouchableOpacity, Image} from "react-native";
+import React, { useState } from "react";
+import { Text, View, TextInput, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import SignIn from "./components/Screens/SignIn";
 import SignUp from "./components/Screens/SignUp";
+
 function CameraScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -29,6 +30,9 @@ export default function App() {
 
   function hasAccountHandler() {
     setSignUp(!signUp);
+  }
+  function loginHandler(){
+    setLoggedIn(!loggedIn);
   }
 
   if (loggedIn) {
@@ -57,9 +61,16 @@ export default function App() {
         </Tab.Navigator>
       </NavigationContainer>
     );
-  }else if(signUp){
-    return <SignUp/>
+  } else if (signUp) {
+    return <SignUp 
+            loginHandler={loginHandler}/>;
   } else {
-    return <SignIn hasAccountHandler = {hasAccountHandler} signUp = {signUp} setSignUp = {setSignUp}/>;
+    return (
+      <SignIn
+        hasAccountHandler={hasAccountHandler}
+        signUp={signUp}
+        setSignUp={setSignUp}
+      />
+    );
   }
 }

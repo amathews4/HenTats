@@ -19,10 +19,13 @@ export default function SignUp() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
-      
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.inner}>
-          <ImageBackground source={require('../Images/henna.jpg')} resizeMode="cover" style={styles.image}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.inner}>
+          <ImageBackground
+            source={require("../Images/henna.jpg")}
+            resizeMode="cover"
+            style={styles.image}
+          >
             <View style={styles.title}>
               <Text style={styles.welcome}>Sign Up</Text>
             </View>
@@ -33,7 +36,7 @@ export default function SignUp() {
               />
             </View>
             <View style={styles.signIn}>
-            <View style={styles.inputView}>
+              <View style={styles.inputView}>
                 <TextInput
                   secureTextEntry
                   style={styles.inputText}
@@ -71,29 +74,13 @@ export default function SignUp() {
             </View>
             <View style={styles.buttons}>
               <TouchableOpacity
-                style={styles.loginBtn} /*onPress={handleLogin}*/
-              >
-                <Text style={styles.loginText}>Submit</Text>
+                style={styles.signUpButton} /*onPress={handleLogin}*/>
+                <Text style={styles.loginText}>Get Started</Text>
               </TouchableOpacity>
-
-             {/* <TouchableOpacity style={styles.loginBtn}>
-                <Text style={styles.loginText} onPress={hasAccountHandler}>
-                  Sign Up
-                </Text>
-  </TouchableOpacity> 
-
-             <TouchableOpacity style={styles.loginBtn}>
-                <Text
-                  style={styles.loginText} /*onPress={forgotPasswordHandler} 
-                >
-                  Forgot Password?
-                </Text>
-              </TouchableOpacity> */}
             </View>
-            </ImageBackground>
-          </View>
-        </TouchableWithoutFeedback>
-      
+          </ImageBackground>
+        </View>
+      </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 }
