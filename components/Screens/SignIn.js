@@ -13,6 +13,27 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import styles from "../globalstyles";
 
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+  const handleLogin = () => {
+    //clearErrors();
+    fire
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch((err) => {
+            switch(err.code){
+                case "auth/invalid-email":
+                case "auth/user-disabled":
+                case "auth/user-not-found":
+                   // setEmailError(err.message);
+                    break;
+                case "auth/wrong-password":
+                    //setPasswordError(err.message);
+                    break;
+            }
+        });
+};
+
 export default function SignIn(props) {
   const {hasAccountHandler, signUp, setSignUp} = props;
   return (
@@ -20,7 +41,6 @@ export default function SignIn(props) {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
-      
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
           <ImageBackground source={require('../Images/henna.jpg')} resizeMode="cover" style={styles.image}>

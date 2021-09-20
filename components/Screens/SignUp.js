@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "../globalstyles";
-
+import SignIn from "./SignIn";
 export default function SignUp() {
   return (
     <KeyboardAvoidingView
@@ -21,12 +21,14 @@ export default function SignUp() {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
+          
           <ImageBackground
             source={require("../Images/henna.jpg")}
             resizeMode="cover"
             style={styles.image}
           >
             <View style={styles.title}>
+            <TouchableOpacity><Text>Return to Log In</Text></TouchableOpacity>
               <Text style={styles.welcome}>Sign Up</Text>
             </View>
             <View style={styles.logoContainer}>
