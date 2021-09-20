@@ -29,9 +29,7 @@ export default function App() {
   var loggedIn = false;
   
     return (
-      <View>
-        <Text>Hi</Text>
-      </View>
+      <SignIn/>
       
     );
 }
