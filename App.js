@@ -86,7 +86,7 @@ export default function App() {
       </NavigationContainer>
     );
   } else if (signUp) {
-    return <SignUp loginHandler={loginHandler} />;
+    return <SignUp loginHandler={loginHandler} hasAccountHandler = {hasAccountHandler}/>;
   } else {
     return (
       <SignIn

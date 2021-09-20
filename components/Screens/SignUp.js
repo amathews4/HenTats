@@ -1,4 +1,6 @@
 import React from "react";
+
+import { NavigationContainer } from "@react-navigation/native";
 import {
   Text,
   View,
@@ -13,7 +15,15 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import styles from "../globalstyles";
 import SignIn from "./SignIn";
-export default function SignUp() {
+
+function homeScreen({ navigation: { goBack } }) {
+  return (
+    <View>
+      <Button onPress={() => goBack()} title="Go back " />
+    </View>
+  );
+}
+export default function SignUp(props) {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -21,14 +31,15 @@ export default function SignUp() {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
-          
           <ImageBackground
             source={require("../Images/henna.jpg")}
             resizeMode="cover"
             style={styles.image}
           >
             <View style={styles.title}>
-            <TouchableOpacity><Text>Return to Log In</Text></TouchableOpacity>
+              <TouchableOpacity>
+                <Text>Return to Log In</Text>
+              </TouchableOpacity>
               <Text style={styles.welcome}>Sign Up</Text>
             </View>
             <View style={styles.logoContainer}>
@@ -76,9 +87,16 @@ export default function SignUp() {
             </View>
             <View style={styles.buttons}>
               <TouchableOpacity
-                style={styles.signUpButton} /*onPress={handleLogin}*/>
+                style={styles.signUpButton} /*onPress={handleLogin}*/
+              >
                 <Text style={styles.loginText}>Get Started</Text>
               </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.signUpButton} onPress={props.hasAccountHandler}
+              >
+                <Text style={styles.loginText}>Go Back</Text>
+              </TouchableOpacity>
+
             </View>
           </ImageBackground>
         </View>
