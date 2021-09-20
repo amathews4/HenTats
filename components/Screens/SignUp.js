@@ -12,17 +12,9 @@ import {
   Keyboard,
   ImageBackground,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import styles from "../globalstyles";
-import SignIn from "./SignIn";
 
-function homeScreen({ navigation: { goBack } }) {
-  return (
-    <View>
-      <Button onPress={() => goBack()} title="Go back " />
-    </View>
-  );
-}
+import styles from "../globalstyles";
+
 export default function SignUp(props) {
   return (
     <KeyboardAvoidingView
@@ -92,11 +84,11 @@ export default function SignUp(props) {
                 <Text style={styles.loginText}>Get Started</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={styles.signUpButton} onPress={props.hasAccountHandler}
+                style={styles.signUpButton}
+                onPress={props.hasAccountHandler}
               >
                 <Text style={styles.loginText}>Go Back</Text>
               </TouchableOpacity>
-
             </View>
           </ImageBackground>
         </View>
