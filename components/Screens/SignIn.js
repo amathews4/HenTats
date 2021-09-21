@@ -21,6 +21,12 @@ export default function SignIn(props) {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [forgotPassword, setForgotPassword] = useState(false);
+
+  function forgotPasswordHandler() {
+    setForgotPassword(!forgotPassword);
+  }
+  
   const handleLogin = () => {
     //clearErrors();
     fire
