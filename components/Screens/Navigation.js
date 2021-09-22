@@ -31,7 +31,7 @@ export default function Navigation() {
             },
             tabBarActiveTintColor: "tomato",
             tabBarInactiveTintColor: "gray",
-          })}
+          })} 
         >
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Camera" component={CameraScreen} />
