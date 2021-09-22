@@ -21,6 +21,8 @@ export default function SignUp(props) {
   const [reEnterPassword, setReEnterPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+
+  const db = fire.firestore();
   const handleSignup = () => {
     if (password === reEnterPassword) {
       fire
@@ -37,13 +39,10 @@ export default function SignUp(props) {
               break;
           }
         });
-      fire
-        .database()
-        .ref("users/")
-        .set({
-          email: email.replace(".", ","),
-          fullName: fullName,
-        });
+      db.collection('users').add({
+        fullName: fullName,
+        email: email.replace('.',',')
+      })
     } else setPasswordError("Your passwords don't match. Please try again!");
   };
   return (

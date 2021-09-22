@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import firebase from "firebase/app";
 import 'firebase/auth';
 import 'firebase/app';
+import 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -13,7 +14,8 @@ const firebaseConfig = {
   projectId: "virtualtats-development",
   storageBucket: "virtualtats-development.appspot.com",
   messagingSenderId: "206100940395",
-  appId: "1:206100940395:web:1280c77ff21e962f82132e"
+  appId: "1:206100940395:web:1280c77ff21e962f82132e",
+  databaseURL: "https://virtualtats-development.firebaseio.com"
 };
 
 // Initialize Firebase

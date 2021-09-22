@@ -1,10 +1,10 @@
 {
-  "devToolsPort": 19003,
-  "expoServerPort": 19001,
-  "packagerPort": 19001,
-  "expoServerNgrokUrl": "https://y8-ip6.anonymous.hentats.exp.direct",
-  "packagerNgrokUrl": "https://packager.y8-ip6.anonymous.hentats.exp.direct",
-  "ngrokPid": 5692,
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "packagerPort": 19000,
+  "expoServerNgrokUrl": "https://y8-ip6.amathews98.hentats.exp.direct",
+  "packagerNgrokUrl": "https://packager.y8-ip6.amathews98.hentats.exp.direct",
+  "ngrokPid": 17924,
   "packagerPid": null,
   "webpackServerPort": null
 }
