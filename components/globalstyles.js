@@ -13,7 +13,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems:'center',
-    width:'100%'
+    width:'100%',
   },
   inner: {
     width: "100%",
@@ -28,6 +28,15 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 20,
+    marginTop: 30,
+  },
+  signUpMsg: {
+    flex: 2,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 30,
+    marginTop: 20,
   },
   welcome: {
     color: "#00f3c5",
@@ -36,11 +45,12 @@ export default StyleSheet.create({
   logoContainer: {
     flex: 1,
     justifyContent: "center",
-    marginBottom: 50,
+    marginTop: 30,
+    marginBottom: 75,
     height: 100,
   },
   logoPic: {
-    width: 200,
+    width: 180,
     resizeMode: "contain",
   },
   signIn: {
@@ -48,11 +58,11 @@ export default StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     width: "100%",
-    marginBottom: 60,
+    marginBottom: 70,
   },
 
   inputText: {
-    //height: 50,
+    height: 20,
     //color: 'white',
   },
   inputView: {
@@ -66,6 +76,7 @@ export default StyleSheet.create({
   },
   buttons: {
     flex: 2,
+    marginTop: 45
   },
   loginBtn: {
     backgroundColor: "black",
@@ -84,33 +95,21 @@ export default StyleSheet.create({
     color: "#00f3c5",
   },
   signUpButton:{
-    flex:1,
     backgroundColor: "black",
     color: "#00f3c5",
-    width: 200,
     height: 50,
+    width: 200,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 60,
-    marginVertical:40,
+    marginBottom: 5,
+    marginTop: 30,
     borderColor: "white",
     borderStyle: "solid",
     borderWidth: 3,
     borderRadius: 40,
   },
-  goButton:{
-    flex:1,
-    backgroundColor: "black",
-    color: "#00f3c5",
-    width: 200,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 40,
-    marginVertical:80,
-    borderColor: "white",
-    borderStyle: "solid",
-    borderWidth: 3,
-    borderRadius: 40,
+  upButtons:{
+    flex: 3,
+    marginTop: 100
   }
 });

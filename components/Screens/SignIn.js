@@ -13,6 +13,7 @@ import {
 import fire from '../Firebase';
 import { Ionicons } from "@expo/vector-icons";
 import styles from "../globalstyles";
+//import forgotPasswordHandler from './forgetPassword';
 
 
 export default function SignIn(props) {
@@ -21,11 +22,10 @@ export default function SignIn(props) {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [forgotPassword, setForgotPassword] = useState(false);
 
-  function forgotPasswordHandler() {
-    setForgotPassword(!forgotPassword);
-  }
+
+  
+  
   
   const handleLogin = () => {
     //clearErrors();
@@ -95,7 +95,7 @@ export default function SignIn(props) {
 
               <TouchableOpacity style={styles.loginBtn}>
                 <Text
-                  style={styles.loginText} /*onPress={forgotPasswordHandler} */
+                  style={styles.loginText} //onPress={forgotPasswordHandler} 
                 >
                   Forgot Password?
                 </Text>

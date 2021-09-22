@@ -22,6 +22,9 @@ export default function Navigation() {
               } else if (route.name === "Camera") {
                 iconName = focused ? "camera" : "camera-outline";
               }
+              else if(route.name === "Settings"){
+                iconName = focused ? "list-sharp" : "list-outline";
+              }
 
               // You can return any component that you like here!
               return <Ionicons name={iconName} size={size} color={color} />;
@@ -34,6 +37,7 @@ export default function Navigation() {
           <Tab.Screen name="Camera" component={CameraScreen} />
           {/*<Tab.Screen name = "Saved Pictures" component ={SignIn}/>*/}
            <Tab.Screen name = "Settings" component = {Settings}/>
+           
         </Tab.Navigator> 
       </NavigationContainer>
     )

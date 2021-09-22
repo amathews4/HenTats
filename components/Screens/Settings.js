@@ -9,7 +9,8 @@ const handleLogout = () => {
 export default function Settings() {
     
     return(
-        <View>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" , backgroundColor: "grey"}}>
+    
             <TouchableOpacity onPress = {handleLogout}>
                 <Text>Log Out</Text>
             </TouchableOpacity>

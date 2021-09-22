@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { AntDesign } from '@expo/vector-icons';
 import {
   Text,
   View,
@@ -58,10 +58,7 @@ export default function SignUp(props) {
             resizeMode="cover"
             style={styles.image}
           >
-            <View style={styles.title}>
-              <TouchableOpacity>
-                <Text>Return to Log In</Text>
-              </TouchableOpacity>
+            <View style={styles.signUpMsg}>
               <Text style={styles.welcome}>Sign Up</Text>
             </View>
             <View style={styles.logoContainer}>
@@ -106,7 +103,7 @@ export default function SignUp(props) {
                 />
               </View>
             </View>
-            <View style={styles.buttons}>
+            <View style={styles.upButtons}>
               <TouchableOpacity
                 style={styles.signUpButton}
                 onPress={handleSignup}
@@ -117,7 +114,8 @@ export default function SignUp(props) {
                 style={styles.signUpButton}
                 onPress={props.hasAccountHandler}
               >
-                <Text style={styles.loginText}>Go Back</Text>
+                {/* //<Text style={styles.loginText}>Go Back</Text> */}
+                <AntDesign name="back" size={24} color="cyan" />
               </TouchableOpacity>
             </View>
           </ImageBackground>
