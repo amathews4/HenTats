@@ -17,7 +17,7 @@ import styles from "../globalstyles";
 
 
 export default function SignIn(props) {
-  const {hasAccountHandler, signUp, setSignUp} = props;
+  const {hasAccountHandler, forgetPasswordHandler} = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -95,7 +95,7 @@ export default function SignIn(props) {
 
               <TouchableOpacity style={styles.loginBtn}>
                 <Text
-                  style={styles.loginText} //onPress={forgotPasswordHandler} 
+                  style={styles.loginText} onPress={forgetPasswordHandler} 
                 >
                   Forgot Password?
                 </Text>
