@@ -112,26 +112,5 @@ export default StyleSheet.create({
     flex: 3,
     marginTop: 100
   },
-  forgot:{
-    color:"white",
-    fontSize:11
-},
-forgotBody:{
-  alignItems:"center",
-  marginTop:25
-},
-forgotScreen:{flex: 1,
-  backgroundColor:"#ccffcf",
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '100%'
 
-},
-forgotScreen2:{width:"70%",
-  backgroundColor:"#ffffff",
-  borderRadius:25,
-  height:50,
-  marginBottom:5,
-  justifyContent:"center",
-  padding:20}
 });
