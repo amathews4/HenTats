@@ -9,6 +9,18 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  fpContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor:"black"
+  },
+  titleBar: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 24,
+    marginHorizontal: 16
+},
   image: {
     flex: 1,
     justifyContent: "center",

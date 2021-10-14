@@ -5,6 +5,7 @@ import styles from "../globalstyles";
 
 import { Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import globalstyles from "../globalstyles";
 
 
 export default function ForgetPassword() {
@@ -14,9 +15,9 @@ export default function ForgetPassword() {
     return fire.auth().sendPasswordResetEmail(email);
   }
   return (
-    <View>
+    <View style={globalstyles.fpContainer}>
       <View style={{ marginBottom: 10 }}>
-        <Text style={{ fontWeight: "bold" }}>Enter your email here</Text>
+        <Text style={{ fontWeight: "bold",color: "#00f3c5" }}>Enter your email here</Text>
       </View>
       <View style={styles.inputView}>
         <TextInput
