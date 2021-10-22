@@ -3,8 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import Settings from "./Settings";
-import CameraScreen from "./CameraScreen";
 import HomeScreen from "./HomeScreen";
+import Galleries from "./Galleries";
 
 
 const Tab = createBottomTabNavigator();
@@ -19,7 +19,7 @@ export default function Navigation() {
 
               if (route.name === "Home") {
                 iconName = focused ? "home" : "home-outline";
-              } else if (route.name === "Camera") {
+              } else if (route.name === "Gallery") {
                 iconName = focused ? "camera" : "camera-outline";
               }
               else if(route.name === "Settings"){
@@ -34,7 +34,7 @@ export default function Navigation() {
           })} 
         >
           <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Camera" component={CameraScreen} />
+          <Tab.Screen name = "Gallery" component = {Galleries}/>
           {/*<Tab.Screen name = "Saved Pictures" component ={SignIn}/>*/}
            <Tab.Screen name = "Settings" component = {Settings}/>
            
