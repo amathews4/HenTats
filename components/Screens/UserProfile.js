@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, Button } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import fire from "../Firebase";
 
+const handleLogout = () => {
+  fire.auth().signOut();
+};
 
 export default class UserProfileView extends Component {
   render() {
@@ -8,24 +13,28 @@ export default class UserProfileView extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.headerContent}>
-          <Image source={require('./logo-3.png')} />
-
-            <Text style={styles.name}>John Doe </Text>
+            <Text style={styles.name}>John Doe</Text>
             <Text style={styles.userInfo}>jhonnydoe@mail.com </Text>
-            <Text style={styles.userInfo}>Florida </Text>
           </View>
         </View>
         <View style={styles.logOut}>
-          <Button title="Log out" onPress={this.logOut} />
+          <TouchableOpacity onPress={handleLogout}>
+            <MaterialCommunityIcons name="logout" size={24} color="black" />
+          </TouchableOpacity>
+          <Text>Log Out</Text>
         </View>
-     
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-
+  container:{
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "grey",
+  },
   headerContent: {
     padding: 20,
     alignItems: "center",

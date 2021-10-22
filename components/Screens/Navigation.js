@@ -5,6 +5,7 @@ import React from "react";
 import Settings from "./Settings";
 import HomeScreen from "./HomeScreen";
 import Galleries from "./Galleries";
+import UserProfileView from "./UserProfile";
 
 
 const Tab = createBottomTabNavigator();
@@ -19,11 +20,15 @@ export default function Navigation() {
 
               if (route.name === "Home") {
                 iconName = focused ? "home" : "home-outline";
-              } else if (route.name === "Gallery") {
-                iconName = focused ? "camera" : "camera-outline";
+              } 
+              else if (route.name === "Gallery") {
+                iconName = focused ? "images" : "images-outline";
               }
               else if(route.name === "Settings"){
                 iconName = focused ? "list-sharp" : "list-outline";
+              }
+              else if(route.name === "User Profile"){
+                iconName = focused ? "person" : "person-outline";
               }
 
               // You can return any component that you like here!
@@ -36,7 +41,7 @@ export default function Navigation() {
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name = "Gallery" component = {Galleries}/>
           {/*<Tab.Screen name = "Saved Pictures" component ={SignIn}/>*/}
-           <Tab.Screen name = "Settings" component = {Settings}/>
+          <Tab.Screen name = "User Profile" component = {UserProfileView}/>
            
         </Tab.Navigator> 
       </NavigationContainer>
