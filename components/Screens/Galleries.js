@@ -45,7 +45,6 @@ export default class Galleries extends Component {
           }}
           renderItem={(post) => {
             const item = post.item.image;
-            console.log(item);
             return (
               <View style={styles.card}>
                 <Image style={styles.cardImage} source={item}/>

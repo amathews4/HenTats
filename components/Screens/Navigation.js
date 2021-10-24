@@ -6,12 +6,17 @@ import Settings from "./Settings";
 import HomeScreen from "./HomeScreen";
 import Galleries from "./Galleries";
 import UserProfileView from "./UserProfile";
+import CameraScreen from "./CameraScreen";
+import {View, StatusBar} from "react-native";
 
 
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
     return (
+      <View style = {{width: '100%',height: '100%'}}>
+        <StatusBar
+        backgroundColor="#00f3c5"/>
         <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
@@ -24,7 +29,7 @@ export default function Navigation() {
               else if (route.name === "Gallery") {
                 iconName = focused ? "images" : "images-outline";
               }
-              else if(route.name === "Settings"){
+              else if(route.name === "Camera Screen"){
                 iconName = focused ? "list-sharp" : "list-outline";
               }
               else if(route.name === "User Profile"){
@@ -42,8 +47,10 @@ export default function Navigation() {
           <Tab.Screen name = "Gallery" component = {Galleries}/>
           {/*<Tab.Screen name = "Saved Pictures" component ={SignIn}/>*/}
           <Tab.Screen name = "User Profile" component = {UserProfileView}/>
+          <Tab.Screen name = "Camera Screen" component = {CameraScreen}/>
            
         </Tab.Navigator> 
       </NavigationContainer>
+      </View>
     )
 }

@@ -5,6 +5,7 @@ import fire from "./components/Firebase";
 import Navigation from "./components/Screens/Navigation";
 import ForgetPassword from "./components/Screens/forgetPassword";
 
+
 export default function App() {
   const [signUp, setSignUp] = useState(false);
   const [user, setUser] = useState("");

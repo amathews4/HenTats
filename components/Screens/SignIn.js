@@ -9,6 +9,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   ImageBackground,
+  StatusBar
 } from "react-native";
 import fire from '../Firebase';
 import { Ionicons } from "@expo/vector-icons";
@@ -48,8 +49,9 @@ export default function SignIn(props) {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
-    >
+      style={styles.container}>
+        <StatusBar
+        backgroundColor="#00f3c5"/>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
           <ImageBackground source={require('../Images/henna.jpg')} resizeMode="cover" style={styles.image}>
