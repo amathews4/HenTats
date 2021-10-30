@@ -15,13 +15,13 @@ export default class Galleries extends Component {
         {id:1,  image:require("../Images/1.png")},
         {id:2,  image:require("../Images/2.jpg")} ,
         {id:3,  image:require("../Images/3.png")}, 
-        {id:4,  image:require("../Images/4.png")}, 
+        {id:4,  image:require("../Images/4.jpg")}, 
         {id:5,  image:require("../Images/5.png")}, 
         {id:6,  image:require("../Images/6.png")}, 
         {id:7,  image:require("../Images/7.png")}, 
         {id:8,  image:require("../Images/8.jpg")},
         {id:9,  image:require("../Images/9.jpg")},
-        {id:10, image:require("../Images/10.png")},
+        {id:10, image:require("../Images/10.jpg")},
       ]
     };
   }
