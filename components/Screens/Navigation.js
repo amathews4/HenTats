@@ -30,7 +30,7 @@ export default function Navigation() {
                 iconName = focused ? "images" : "images-outline";
               }
               else if(route.name === "Camera Screen"){
-                iconName = focused ? "list-sharp" : "list-outline";
+                iconName = focused ? "camera" : "camera-outline";
               }
               else if(route.name === "User Profile"){
                 iconName = focused ? "person" : "person-outline";
@@ -46,8 +46,9 @@ export default function Navigation() {
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name = "Gallery" component = {Galleries}/>
           {/*<Tab.Screen name = "Saved Pictures" component ={SignIn}/>*/}
-          <Tab.Screen name = "User Profile" component = {UserProfileView}/>
           <Tab.Screen name = "Camera Screen" component = {CameraScreen}/>
+          <Tab.Screen name = "User Profile" component = {UserProfileView}/>
+          
            
         </Tab.Navigator> 
       </NavigationContainer>
