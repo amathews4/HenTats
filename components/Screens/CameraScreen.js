@@ -45,9 +45,7 @@ export default class CameraScreen extends Component {
   constructor(props) {
     super(props);
     this.navigatorRef = React.createRef();
-    this.state = {
-      navigator: null,
-    };
+    that = this;
   }
   componentDidMount() {
     var navRef = this.navigatorRef;
@@ -67,7 +65,7 @@ export default class CameraScreen extends Component {
         />
         <View style = {style.takePic}>
           <TouchableOpacity onPress = {this.takeScreenshot}>
-            <Text style = {style.buttonText}>Take a Picture</Text>
+            <Text style = {style.buttonText}></Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -75,27 +73,27 @@ export default class CameraScreen extends Component {
   }
 
   takeScreenshot() {
-    console.log(this.navigator);
+    console.log(that.navigatorRef);
     var curDate = new Date();
     var curDateFormat = curDate.toISOString().split('T')[0];
-    this.state.navigator.arSceneNavigator.takeScreenshot('Viro' + curDateFormat, true);
+    that.navigatorRef.current._takeScreenshot('Viro' + curDateFormat, true);
   }
 }
 
 const style = StyleSheet.create({
   takePic: {
-    width:'50%',
-    zIndex:2,
+    //width:'50%',
+    paddingTop: 5,
+    paddingBottom: 5,
     backgroundColor: 'transparent',
-    
-  },
-  buttonText: {
-    width: 100,
-    height: 100,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  buttonText: {
+    width: 50,
+    height: 50,
     padding: 10,
     borderRadius: 100,
-    backgroundColor: 'blue',
+    backgroundColor: 'lightblue',
   },
 });
