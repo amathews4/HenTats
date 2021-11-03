@@ -67,7 +67,7 @@ export default class CameraScreen extends Component {
         />
         <View style = {style.takePic}>
           <TouchableOpacity onPress = {this.takeScreenshot}>
-            <Text style = {style.buttonText}>Hello World</Text>
+            <Text style = {style.buttonText}>Take a Picture</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -87,8 +87,15 @@ const style = StyleSheet.create({
     width:'50%',
     zIndex:2,
     backgroundColor: 'transparent',
+    
   },
   buttonText: {
-    fontSize: 20,
+    width: 100,
+    height: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 100,
+    backgroundColor: 'blue',
   },
 });
