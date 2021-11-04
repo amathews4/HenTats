@@ -4,12 +4,14 @@ import SignUp from "./components/Screens/SignUp";
 import fire from "./components/Firebase";
 import Navigation from "./components/Screens/Navigation";
 import ForgetPassword from "./components/Screens/forgetPassword";
+import CameraScreen from "./components/Screens/CameraScreen";
 
 
 export default function App() {
   const [signUp, setSignUp] = useState(false);
   const [user, setUser] = useState("");
   const [forgetPassword, setForgetPassword] = useState(false);
+  const [image, setImage] = useState();
 
   const authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
@@ -33,9 +35,13 @@ export default function App() {
     setForgetPassword(!forgetPassword);
   }
 
-  if (user) {
-    return <Navigation />;
-  } else if (signUp) {
+  if(user && image) {
+    return <CameraScreen image = {image}/>
+  }
+  else if (user) {
+     return <Navigation setImage = {setImage}/>;
+   } 
+  else if (signUp) {
     return <SignUp hasAccountHandler={hasAccountHandler} />;
   } else if (forgetPassword) {
     return <ForgetPassword />;
