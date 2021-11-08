@@ -5,11 +5,14 @@ import {
   Image,
   FlatList,
 } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class Galleries extends Component {
 
   constructor(props) {
     super(props);
+    const {imageHandler} = props;
+    this.imageHandler = imageHandler;
     this.state = {
       data: [
         {id:1,  image:require("../Images/1.png")},
@@ -47,7 +50,10 @@ export default class Galleries extends Component {
             const item = post.item.image;
             return (
               <View style={styles.card}>
-                <Image style={styles.cardImage} source={item}/>
+                {console.log(item)}
+                <TouchableOpacity onPress = {() => this.imageHandler(item)}> 
+                  <Image style={styles.cardImage} source={item}/>
+                </TouchableOpacity>
               </View>
             )
           }}/>

@@ -7,7 +7,7 @@ import {
 } from '@viro-community/react-viro';
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 
-const HelloWorldSceneAR = () => {
+const HelloWorldSceneAR = (props) => {
   /*
   const [text, setText] = useState('Initializing AR...');
 
@@ -31,10 +31,10 @@ const HelloWorldSceneAR = () => {
     </ViroARScene>
   );
   */
-
+  const {image} = props;
   return (
     <ViroARScene>
-      <ViroImage source = {require('../Images/jackie.png')}
+      <ViroImage source = {image}
         scale={[0.5,0.5,0.5]}
         position={[0,0,-1]} />
     </ViroARScene>
@@ -45,6 +45,10 @@ export default class CameraScreen extends Component {
   constructor(props) {
     super(props);
     this.navigatorRef = React.createRef();
+    const {image} = props;
+    this.image = image;
+    const {imageHandler} = props;
+    this.imageHandler = imageHandler;
     that = this;
   }
   componentDidMount() {
@@ -55,12 +59,18 @@ export default class CameraScreen extends Component {
   render() {
     return (
       <View style = {{flex: 1}}>
+        <View style = {style.goBack}>
+          <TouchableOpacity onPress = {() => this.imageHandler(null)}>
+            <Text style = {style.goBackButton}>Go back</Text>
+          </TouchableOpacity>
+        </View>
         <ViroARSceneNavigator
         style = {{flex: 1}}
         ref = {this.navigatorRef}
         autofocus={true}
         initialScene={{
           scene: HelloWorldSceneAR,
+          passProps: {image: that.image}
         }}
         />
         <View style = {style.takePic}>
@@ -73,7 +83,6 @@ export default class CameraScreen extends Component {
   }
 
   takeScreenshot() {
-    console.log(that.navigatorRef);
     var curDate = new Date();
     var curDateFormat = curDate.toISOString().split('T')[0];
     that.navigatorRef.current._takeScreenshot('Viro' + curDateFormat, true);
@@ -95,5 +104,20 @@ const style = StyleSheet.create({
     padding: 10,
     borderRadius: 100,
     backgroundColor: 'lightblue',
+  },
+
+  goBackButton: {
+    width: 100,
+    height: 40,
+    padding: 10,
+    backgroundColor: 'lightblue',
+    marginLeft: 10,
+    paddingBottom: 10,
+  },
+
+  goBack: {
+    paddingTop: 5,
+    paddingBottom: 5,
+    backgroundColor: 'transparent',
   },
 });

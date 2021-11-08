@@ -12,7 +12,10 @@ import {View, StatusBar} from "react-native";
 
 const Tab = createBottomTabNavigator();
 
-export default function Navigation() {
+export default function Navigation(props) {
+
+  const {imageHandler} = props;
+
     return (
       <View style = {{width: '100%',height: '100%'}}>
         <StatusBar
@@ -43,10 +46,10 @@ export default function Navigation() {
             tabBarInactiveTintColor: "gray",
           })} 
         >
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name = "Gallery" component = {Galleries}/>
+          {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
+          <Tab.Screen name = "Gallery" children = {()=> <Galleries imageHandler = {imageHandler} />} />
           {/*<Tab.Screen name = "Saved Pictures" component ={SignIn}/>*/}
-          <Tab.Screen name = "Camera Screen" component = {CameraScreen}/>
+          {/* <Tab.Screen name = "Camera Screen" component = {CameraScreen}/> */}
           <Tab.Screen name = "User Profile" component = {UserProfileView}/>
           
            

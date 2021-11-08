@@ -28,6 +28,10 @@ export default function App() {
     authListener();
   }, []);
 
+  useEffect(() => {
+    console.log(image);
+  }, [image]);
+
   function hasAccountHandler() {
     setSignUp(!signUp);
   }
@@ -35,11 +39,15 @@ export default function App() {
     setForgetPassword(!forgetPassword);
   }
 
+  function imageHandler(img) {
+    setImage(img);
+  }
+
   if(user && image) {
-    return <CameraScreen image = {image}/>
+    return <CameraScreen image = {image} imageHandler = {imageHandler}/>
   }
   else if (user) {
-     return <Navigation setImage = {setImage}/>;
+     return <Navigation imageHandler = {imageHandler}/>;
    } 
   else if (signUp) {
     return <SignUp hasAccountHandler={hasAccountHandler} />;
