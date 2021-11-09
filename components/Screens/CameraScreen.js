@@ -6,6 +6,7 @@ import {
   //ViroConstants
 } from '@viro-community/react-viro';
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+import moment from 'moment';
 
 const HelloWorldSceneAR = (props) => {
   /*
@@ -83,8 +84,8 @@ export default class CameraScreen extends Component {
   }
 
   takeScreenshot() {
-    var curDate = new Date();
-    var curDateFormat = curDate.toISOString().split('T')[0];
+    //var curDate = new Date();
+    var curDateFormat = moment().format('dd_MM_yyyy_HH_mm_ss');
     that.navigatorRef.current._takeScreenshot('Viro' + curDateFormat, true);
   }
 }
