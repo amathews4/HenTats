@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity,Linking } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import fire from "../Firebase";
 
@@ -29,6 +29,9 @@ export default class UserProfileView extends Component {
           <View style={styles.headerContent}>
             <Text style = {styles.email}>User Email</Text> 
             <Text style={styles.userInfo}> {fire.auth().currentUser.email}</Text>
+            <Text>{''}</Text>
+            <Text style = {styles.email}>Please fill out this survey for us!</Text> 
+            <Text style={styles.link}  onPress={() => Linking.openURL('https://forms.gle/8SN8d89rgKCGhJFG6')}> Click here for survey </Text>
           </View>
         </View>
         <View style={styles.logOut}>
@@ -65,6 +68,9 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: "#000000",
     fontWeight: "600",
+  },
+  link:{
+    color:'blue',
   },
   email:{
     fontSize: 16,
