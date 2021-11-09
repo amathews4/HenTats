@@ -27,7 +27,7 @@ export default class UserProfileView extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.headerContent}>
-            <Text style = {styles.email}>User Email</Text> 
+            <Text style = {styles.email}>User</Text> 
             <Text style={styles.userInfo}> {fire.auth().currentUser.email}</Text>
             <Text>{''}</Text>
             <Text style = {styles.email}>Please fill out this survey for us!</Text> 
