@@ -52,7 +52,7 @@ export default function App() {
   else if (signUp) {
     return <SignUp hasAccountHandler={hasAccountHandler} />;
   } else if (forgetPassword) {
-    return <ForgetPassword />;
+    return <ForgetPassword  forgetPasswordHandler={forgetPasswordHandler}/>;
   } else {
     return (
       <SignIn

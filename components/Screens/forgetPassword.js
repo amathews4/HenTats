@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
 import fire from "../Firebase";
 import styles from "../globalstyles";
-
 import { Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import globalstyles from "../globalstyles";
+import { AntDesign } from '@expo/vector-icons';
 
 
-export default function ForgetPassword() {
+export default function ForgetPassword(props) {
   const [email, setEmail] = useState("");
- 
+  const {forgetPasswordHandler} = props;
   function passwordReset() {
     return fire.auth().sendPasswordResetEmail(email);
   }
@@ -33,6 +33,12 @@ export default function ForgetPassword() {
             Submit
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+                style={styles.loginBtn}
+                onPress={forgetPasswordHandler}
+              >
+                <AntDesign name="back" size={24} color="cyan" />
+              </TouchableOpacity>
        
         
       </View>

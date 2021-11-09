@@ -8,13 +8,27 @@ const handleLogout = () => {
 };
 
 export default class UserProfileView extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.name = fire.firestore().collection('users').get().then(snapshot => {
+  //     snapshot.forEach(doc => {
+  //       const data = doc.data();
+  //       if (data.email === fire.auth().currentUser.email.replace('.', ',')) {
+  //         return doc;
+  //       }
+  //     })
+  //   }).then((doc) => {
+  //     console.log(doc.data);
+  //     return doc.data}).then((data) => {return data.fullName});
+  // }
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.headerContent}>
-            <Text style={styles.name}>John Doe</Text>
-            <Text style={styles.userInfo}>jhonnydoe@mail.com </Text>
+            <Text style = {styles.email}>User Email</Text> 
+            <Text style={styles.userInfo}> {fire.auth().currentUser.email}</Text>
           </View>
         </View>
         <View style={styles.logOut}>
@@ -52,9 +66,13 @@ const styles = StyleSheet.create({
     color: "#000000",
     fontWeight: "600",
   },
+  email:{
+    fontSize: 16,
+    fontWeight:'bold',
+  },
   userInfo: {
     fontSize: 16,
-    color: "#778899",
+    color: "black",
     fontWeight: "600",
   },
   body: {
