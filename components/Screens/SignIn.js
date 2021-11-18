@@ -12,9 +12,7 @@ import {
   StatusBar
 } from "react-native";
 import fire from '../Firebase';
-import { Ionicons } from "@expo/vector-icons";
 import styles from "../globalstyles";
-//import forgotPasswordHandler from './forgetPassword';
 
 
 export default function SignIn(props) {

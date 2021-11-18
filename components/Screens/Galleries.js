@@ -39,11 +39,13 @@ export default class Galleries extends Component {
   render() {
     return (
       <View style={styles.container}>
+        {/*FlatList renders similar data into a scrollable list */}
         <FlatList style={styles.list}
           contentContainerStyle={styles.listContainer}
           data={this.state.data}
           horizontal={false}
-          numColumns={2}
+          numColumns={2} //used to render multiple columns
+          //keyExtractor is used for using ids for react keys
           keyExtractor= {(item) => {
             return item.id;
           }}
@@ -52,6 +54,7 @@ export default class Galleries extends Component {
               <View style={styles.separator}/>
             )
           }}
+          //scrollView Props, takes data and renders to list
           renderItem={(post) => {
             const item = post.item.image;
             return (

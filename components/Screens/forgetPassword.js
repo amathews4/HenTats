@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
 import fire from "../Firebase";
 import styles from "../globalstyles";
-import { Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import globalstyles from "../globalstyles";
 import { AntDesign } from '@expo/vector-icons';
 
@@ -12,7 +10,7 @@ export default function ForgetPassword(props) {
   const [email, setEmail] = useState("");
   const {forgetPasswordHandler} = props;
   function passwordReset() {
-    return fire.auth().sendPasswordResetEmail(email);
+    return fire.auth().sendPasswordResetEmail(email); //send email to reset password
   }
   return (
     <View style={globalstyles.fpContainer}>

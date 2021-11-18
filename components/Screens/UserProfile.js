@@ -8,19 +8,6 @@ const handleLogout = () => {
 };
 
 export default class UserProfileView extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.name = fire.firestore().collection('users').get().then(snapshot => {
-  //     snapshot.forEach(doc => {
-  //       const data = doc.data();
-  //       if (data.email === fire.auth().currentUser.email.replace('.', ',')) {
-  //         return doc;
-  //       }
-  //     })
-  //   }).then((doc) => {
-  //     console.log(doc.data);
-  //     return doc.data}).then((data) => {return data.fullName});
-  // }
 
   render() {
     return (
@@ -88,11 +75,6 @@ const styles = StyleSheet.create({
   },
 
   logOut: {
-    // width: '100%',
-    // height: '50%',
-    // justifyContent: 'center',
-    // alignItems: 'center'
-    
     position: 'relative',
     height: 50,
     alignItems: 'center',

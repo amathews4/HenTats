@@ -2,11 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import Settings from "./Settings";
-import HomeScreen from "./HomeScreen";
 import Galleries from "./Galleries";
 import UserProfileView from "./UserProfile";
-import CameraScreen from "./CameraScreen";
 import {View, StatusBar} from "react-native";
 
 
@@ -20,7 +17,7 @@ export default function Navigation(props) {
       <View style = {{width: '100%',height: '100%'}}>
         <StatusBar
         backgroundColor="#00f3c5"/>
-        <NavigationContainer>
+        <NavigationContainer /*Holds in all the pages*/>
         <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
@@ -46,13 +43,8 @@ export default function Navigation(props) {
             tabBarInactiveTintColor: "gray",
           })} 
         >
-          {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
           <Tab.Screen name = "Gallery" children = {()=> <Galleries imageHandler = {imageHandler} />} />
-          {/*<Tab.Screen name = "Saved Pictures" component ={SignIn}/>*/}
-          {/* <Tab.Screen name = "Camera Screen" component = {CameraScreen}/> */}
-          <Tab.Screen name = "User Profile" component = {UserProfileView}/>
-          
-           
+          <Tab.Screen name = "User Profile" component = {UserProfileView}/>   
         </Tab.Navigator> 
       </NavigationContainer>
       </View>

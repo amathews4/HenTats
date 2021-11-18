@@ -9,31 +9,9 @@ import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 import moment from 'moment';
 
 const HelloWorldSceneAR = (props) => {
-  /*
-  const [text, setText] = useState('Initializing AR...');
-
-  function onInitialized(state, reason) {
-    console.log('guncelleme', state, reason);
-    if (state === ViroConstants.TRACKING_NORMAL) {
-      setText('Hello World!');
-    } else if (state === ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
-    }
-  }
-
-  return (
-    <ViroARScene onTrackingUpdated={onInitialized}>
-      <ViroText
-        text={text}
-        scale={[0.5, 0.5, 0.5]}
-        position={[0, 0, -1]}
-        style={styles.helloWorldTextStyle}
-      />
-    </ViroARScene>
-  );
-  */
   const {image} = props;
   return (
+    // placing the image in the scene
     <ViroARScene>
       <ViroImage source = {image}
         scale={[0.5,0.5,0.5]}
@@ -61,7 +39,7 @@ export default class CameraScreen extends Component {
     return (
       <View style = {{flex: 1}}>
         <View style = {style.goBack}>
-          <TouchableOpacity onPress = {() => this.imageHandler(null)}>
+          <TouchableOpacity onPress = {() => this.imageHandler(null)} /* Go back to Galleries.js*/>
             <Text style = {style.goBackButton}>Go back</Text>
           </TouchableOpacity>
         </View>
@@ -71,7 +49,7 @@ export default class CameraScreen extends Component {
         autofocus={true}
         initialScene={{
           scene: HelloWorldSceneAR,
-          passProps: {image: that.image}
+          passProps: {image: that.image /*passes image callback function*/}
         }}
         />
         <View style = {style.takePic}>
@@ -86,7 +64,9 @@ export default class CameraScreen extends Component {
   takeScreenshot() {
     //var curDate = new Date();
     var curDateFormat = moment().format('dd_MM_yyyy_HH_mm_ss');
-    that.navigatorRef.current._takeScreenshot('Viro' + curDateFormat, true);
+    that.navigatorRef.current._takeScreenshot('Viro' + curDateFormat, true); 
+    //picture stored and  named according to date
+    //_takeScreenshot is a function under Viro AR Navigator
   }
 }
 

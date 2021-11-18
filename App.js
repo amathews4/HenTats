@@ -8,11 +8,13 @@ import CameraScreen from "./components/Screens/CameraScreen";
 
 
 export default function App() {
-  const [signUp, setSignUp] = useState(false);
-  const [user, setUser] = useState("");
-  const [forgetPassword, setForgetPassword] = useState(false);
-  const [image, setImage] = useState();
+  
+  const [signUp, setSignUp] = useState(false); //checks state of signup
+  const [user, setUser] = useState(""); // sets a user 
+  const [forgetPassword, setForgetPassword] = useState(false); //if you forget your password goto ForgetPassword.js
+  const [image, setImage] = useState(); // selected image from gallery 
 
+  //listens to authentication state
   const authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -32,6 +34,7 @@ export default function App() {
     console.log(image);
   }, [image]);
 
+  //handler callback functions
   function hasAccountHandler() {
     setSignUp(!signUp);
   }
@@ -43,17 +46,24 @@ export default function App() {
     setImage(img);
   }
 
+  // checks if user and image are set to go to Camera
   if(user && image) {
-    return <CameraScreen image = {image} imageHandler = {imageHandler}/>
+    return <CameraScreen image = {image} imageHandler = {imageHandler}/> 
   }
+  // if signedin go to main page, through Navigation.js to Galleries.js
   else if (user) {
      return <Navigation imageHandler = {imageHandler}/>;
    } 
+  //if user wants to sign up
   else if (signUp) {
     return <SignUp hasAccountHandler={hasAccountHandler} />;
-  } else if (forgetPassword) {
+  } 
+  //if user forgot password
+  else if (forgetPassword) {
     return <ForgetPassword  forgetPasswordHandler={forgetPasswordHandler}/>;
-  } else {
+  }
+  // if normal sign in
+   else {
     return (
       <SignIn
         hasAccountHandler={hasAccountHandler}
